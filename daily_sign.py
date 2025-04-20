@@ -2,6 +2,7 @@ import os
 import requests
 
 cookie = os.environ.get("JD_COOKIE")
+cookie_mu = os.environ.get("JD_COOKIE_MU")
 
 url = ("https://api.m.jd.com/client.action?functionId=signBeanAct&body=%7B%22fp%22%3A%22-1%22%2C%22shshshfp%22%3A%22-1"
        "%22%2C%22shshshfpa%22%3A%22-1%22%2C%22referUrl%22%3A%22-1%22%2C%22userAgent%22%3A%22-1%22%2C%22jda%22%3A%22-1"
@@ -19,5 +20,17 @@ headers = {"Connection": 'keep-alive',
            "Cookie": cookie
            }
 
+headers_mu = {"Connection": 'keep-alive',
+           "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+           "Cache-Control": 'no-cache',
+           "User-Agent": "okhttp/3.12.1;jdmall;android;version/10.3.4;build/92451;",
+           "accept": "*/*",
+           "connection": "Keep-Alive",
+           "Accept-Encoding": "gzip,deflate",
+           "Cookie": cookie_mu
+           }
+
 response = requests.post(url=url, headers=headers)
 print(response.text)
+response1 = requests.post(url=url, headers=headers_mu)
+print(response1.text)
