@@ -32,5 +32,3 @@ headers_mu = {"Connection": 'keep-alive',
 
 response = requests.post(url=url, headers=headers)
 print(response.text)
-response1 = requests.post(url=url, headers=headers_mu)
-print(response1.text)
